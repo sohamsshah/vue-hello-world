@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/vue@3.0.2"></script>
+    <title>Vue Hello World</title>
+    <style>
+        .genz {
+            color: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <div v-for="book in books" v-show="showBooks">
+            <ul :class="{ genz: book.isGenZ}">
+                <li>{{book.title}}</li>
+                <li>{{book.author}}</li>
+                <li>{{book.age}}</li>
+                <button @click="updateAgeAndGenZ(book.title, 1)">Increment Age</button>
+                <button @click="updateAgeAndGenZ(book.title, -1)">Decrement Age</button>
+            </ul>
+        </div>
+        <button v-show="showBooks" @click="toggleShowBooks">Hide Books</button>
+        <button v-show="!showBooks" @click="toggleShowBooks">Show Books</button>
+
+    </div>
+    <script src="app.js"></script>
+</body>
+
+</html>
